@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [41.9287, -87.64921]
+      },
+      "properties": {
+        "name": "Kingston Mines",
+        "address": "2548 N Halsted St, Chicago, IL 60614",
+        "description": "Kingston Mines is a blues club in Lincoln Park, Chicago. The blues is an American, musical art form, originated in deep south, notably New Orleans, where enslaved black people were able to play in Congo Square on Sundays. The musical form heavily involves features from African music, most notably, elements of drum and bass. As black people from the south migrated up the Missippi river. Today in Chicago, there are only a couple of clubs that you can regularly see musicians with series bonafides play, few can bring in a living. The blues club was started by a Doc Pelligrino, a patron of the blues, whose surviving son, Frank, MC's regularly to this day. \n\nAccording to Wikipedia, 'The club derived its name from the Kingston Mines Theatre Company founded by June Pyskacek in 1969 [...] The theatre was named after the Illinois town where the father of one of its actors, Jack Wallace, worked.' My preliminary search for the origin of 'Kingston' says that is derived from 'king's town in Old English.",
+        "img": "site_data/kingston/kingston_exterior.jpg",
+        "investigator": "Andre Ehrlich",
+        "latitude": "41.9287",
+        "longitude": "-87.64921"
+      }
+    }
+  ]
+}

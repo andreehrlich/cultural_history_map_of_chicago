@@ -1,0 +1,58 @@
+/* Map of Chicago */
+.chart {
+  cursor: default;
+}
+
+/* Polygons drawn to depict zipcodes in Chicago */
+.zipcode {
+  stroke: #000051;
+  fill: #e8eaf6;
+  stroke-width: 1px;
+}
+
+.zipcode:hover {
+  fill: #7986cb;
+  /* stroke: #01579b; */
+  stroke-width: 3px;
+}
+
+/* Site shown on map */
+.site {
+  fill: #d81b60;
+
+}
+
+.site:hover {
+  fill: #880e4f;
+}
+
+/* Site info displayed below the map  */
+.site-info {
+
+}
+
+.site-title {
+
+}
+
+.site-investigator {
+
+}
+
+.site-img {
+
+}
+
+.site-address {
+
+}
+
+.site-description {
+
+}
+
+/* Util Classes */
+
+.hidden {
+  display: none;
+}

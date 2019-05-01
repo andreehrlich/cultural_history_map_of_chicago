@@ -2,24 +2,28 @@ $( document ).ready(function() {
 
   // zipcodes.json taken from https://github.com/smartchicago/chicago-atlas/blob/master/db/import/zipcodes.geojson
   // this script taken from http://bl.ocks.org/cjhin/27e01c636dcc0bfa256c7a225971354d
-  d3.json("zipcodes.json").then(function(json) {
+  // d3.json("zipcodes.json").then(function(json) {
+
+  Promise.all([d3.json("sites.json"), d3.json("zipcodes.json")]).then(function(data) {
+
+    var zipcodes = data[1];
+    var sites = data[0];
 
     //Width and height
     var width = 900;
     var height = 450;
 
     // create a first guess for the projection
-    var center = d3.geoCentroid(json)
+    var center = d3.geoCentroid(zipcodes)
     var scale = 150;
     var projection = d3.geoMercator().scale(scale).center(center);
 
     //Define path generator
-    var path = d3.geoPath()
-                    .projection(projection);
+    var path = d3.geoPath().projection(projection);
 
     // using the path determine the bounds of the current map and use
     // these to determine better values for the scale and translation
-    var bounds = path.bounds(json);
+    var bounds = path.bounds(zipcodes);
     var hscale = scale * width / (bounds[1][0] - bounds[0][0]);
     var vscale = scale * height / (bounds[1][1] - bounds[0][1]);
     var scale = (hscale < vscale) ? hscale : vscale;
@@ -38,12 +42,57 @@ $( document ).ready(function() {
 
     //Bind data and create one path per GeoJSON feature
     svg.selectAll("path")
-      .data(json.features)
+      .data(zipcodes.features)
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("class", "zipcode");
+      .attr("class", "zipcode")
+      // .attr("zip", json.properties.ZIP)
+      // .on("mouseover", function(d){
+    	// 	d3.select("h2").text(d.properties.ZIP);
+    	// 	d3.select(this).attr("class","incident hover");
+    	// });
 
-  });
+
+    svg.selectAll("circle")
+      .data(sites.features)
+      .enter()
+      .append("circle")
+      // .attr("fill", "#880e4f")
+      .attr("class", "site")
+      .attr("r", 7)
+      .attr("cx", function(d) {
+        var cx = projection(d.geometry.coordinates)[0]/400;
+        console.log("cx: ", cx)
+        return 450;
+      })
+      .attr("cy", function(d) {
+        var cy = projection(d.geometry.coordinates)[1]/400;
+        console.log("cy: ", cy)
+        return 200;
+      })
+      .on("mouseover", function(d){
+      	d3.select(".site-title").text(d.properties.name);
+        d3.select(".site-address").text(d.properties.address);
+        d3.select(".site-description").text(d.properties.description);
+        d3.select(".site-investigator").text("Investigator: " + d.properties.investigator);
+        d3.select(".site-image")
+          .attr("src", d.properties.img)
+          .attr('alt', d.properties.img.split(',')[0]);
+        d3.select(".site-info").classed("hidden", false);
+      })
+      .on("mouseout", function(d){
+      	d3.select(".site-info").classed("hidden", true);
+        // d3.select(".site-address").text("");
+        // d3.select(".site-image").attr("src", "");
+        // d3.select(".site-description").text("");
+
+      })
+      .on("click", function(d){
+        d3.select("")
+      })
+      // .
+
+  })
 
 });

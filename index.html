@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Colonial Residue in Chicago & Evanston, IL</title>
 
+	<title>Colonial Residue in Chicago, IL</title>
 
   <!-- External Scripts -->
+  <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- D3.js -->
 	<script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
-	<!-- <script src="./chicago_wards.geojson"></script> -->
 
-
-  <style>
-    .zipcode {
-      stroke: steelblue;
-      fill: #FFF;
-    }
-  </style>
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-	<!-- Page elements and content go here. -->
-  <h1>Colonial Residue in Chicago & Evanston, IL</h1>
-  <p>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</p>
 
+  <!-- Title -->
+  <h1>Colonial Residue in Chicago, IL</h1>
+
+  <!-- Description -->
+  <h4>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</h4>
+  <p>Hover over a site to learn about its colonial residue.</p>
+
+  <!-- Map of Chicago -->
   <svg class="chart"></svg>
+
+  <!-- Charting zipcodes -->
   <script src="./mapping.js"></script>
+
+  <!-- Selected Site Information -->
+  <div class="site-info hidden">
+    <h2 class="site-title"></h2>
+    <h3 class="site-address"></h3>
+    <p class="site-investigator"></p>
+    <img class="site-image" src="" alt="site-image" height="100" width="100">
+    <p class="site-description"></p>
+  </div>
 </body>
 
 </html>
