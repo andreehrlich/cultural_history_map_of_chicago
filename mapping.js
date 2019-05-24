@@ -5,17 +5,18 @@ $( document ).ready(function() {
   // d3.json("zipcodes.json").then(function(json) {
 
   Promise.all([d3.json("sites.json"), d3.json("zipcodes.json")]).then(function(data) {
-
+      //console.log(data);
     var zipcodes = data[1];
     var sites = data[0];
-
+      console.log(data);
+      console.log(sites);
     //Width and height
-    var width = 900;
+    var width = 450;
     var height = 450;
 
     // create a first guess for the projection
     var center = d3.geoCentroid(zipcodes)
-    var scale = 150;
+    var scale = 100;
     var projection = d3.geoMercator().scale(scale).center(center);
 
     //Define path generator
@@ -28,11 +29,13 @@ $( document ).ready(function() {
     var vscale = scale * height / (bounds[1][1] - bounds[0][1]);
     var scale = (hscale < vscale) ? hscale : vscale;
     var offset = [width - (bounds[0][0] + bounds[1][0]) / 2,
-                     height - (bounds[0][1] + bounds[1][1]) / 2];
+                  height - (bounds[0][1] + bounds[1][1]) / 2];
 
+      console.log(offset);
+      offset = [240, 200];
     // new projection
     projection = d3.geoMercator().center(center)
-     .scale(scale * 0.9).translate(offset);
+     .scale(scale).translate(offset);
     path = path.projection(projection);
 
     //Create SVG element
@@ -62,16 +65,16 @@ $( document ).ready(function() {
       .attr("class", "site")
       .attr("r", 7)
       .attr("cx", function(d) {
-        var cx = projection(d.geometry.coordinates)[0]/400;
+        var cx = projection(d.geometry.coordinates)[0]/450;
         console.log("cx: ", cx)
-        return 450;
+        return cx;
       })
       .attr("cy", function(d) {
-        var cy = projection(d.geometry.coordinates)[1]/400;
+        var cy = projection(d.geometry.coordinates)[1]/700;
         console.log("cy: ", cy)
-        return 200;
+        return cy;
       })
-      .on("mouseover", function(d){
+      .on("click", function(d){
       	d3.select(".site-title").text(d.properties.name);
         d3.select(".site-address").text(d.properties.address);
         d3.select(".site-description").text(d.properties.description);
@@ -81,16 +84,16 @@ $( document ).ready(function() {
           .attr('alt', d.properties.img.split(',')[0]);
         d3.select(".site-info").classed("hidden", false);
       })
-      .on("mouseout", function(d){
-      	d3.select(".site-info").classed("hidden", true);
+      //.on("mouseout", function(d){
+      //	d3.select(".site-info").classed("hidden", true);
         // d3.select(".site-address").text("");
         // d3.select(".site-image").attr("src", "");
         // d3.select(".site-description").text("");
 
-      })
-      .on("click", function(d){
-        d3.select("")
-      })
+      //})
+      //.on("click", function(d){
+      //  d3.select("")
+      //})
       // .
 
   })
