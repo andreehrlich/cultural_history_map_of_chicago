@@ -1,3 +1,15 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex; 
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+}
+
+h4 {
+}
+
 /* Map of Chicago */
 .chart {
   cursor: default;
@@ -5,38 +17,30 @@
 
 /* Polygons drawn to depict zipcodes in Chicago */
 .zipcode {
-  stroke: #000;
-  fill: #000;
+  stroke: #fff;
+  fill: #4286f4;
   stroke-width: 1px;
 }
 
 .zipcode:hover {
-  fill: #111;
-  /* stroke: #01579b; */
+  fill: #ffd000;
+  stroke: #00ddff;
   stroke-width: 3px;
 }
 
+
 /* Site shown on map */
-.site {
-  fill: #fff;
-
-}
-
-.site:hover {
-  fill: #eee;
-}
-
-/* Site info displayed below the map  */
 .site-info {
-
+    margin: 30px;
+    padding: 30px;
+    background-color: #bbd9f7;
 }
 
 .site-title {
-
+    font-family: 'PT Serif', serif;
 }
 
 .site-investigator {
-
 }
 
 .site-img {
@@ -44,7 +48,7 @@
 }
 
 .site-address {
-
+    font-family: 'PT Serif', serif;
 }
 
 .site-description {
