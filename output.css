@@ -1,0 +1,71 @@
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-flow: column;
+}
+
+h1 {
+  font-family: "PT Serif", serif;
+}
+
+.headings {
+  flex: 2 1 2;
+}
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  /* Map of Chicago */
+}
+.main #list_of_sites li {
+  cursor: pointer;
+  list-style-type: none;
+  background-color: #bbd9f7;
+  border-bottom: solid 2px #eee;
+  margin: 5px;
+}
+.main #list_of_sites li:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+.main .chart {
+  cursor: default;
+  /* Polygons drawn to depict zipcodes in Chicago */
+  /* circles depict sites */
+}
+.main .chart .zipcode {
+  stroke: #fff;
+  fill: #4286f4;
+  stroke-width: 1px;
+}
+.main .chart .zipcode:hover {
+  fill: #ffd000;
+  stroke: #00ddff;
+  stroke-width: 3px;
+}
+.main .chart .site {
+  cursor: default;
+}
+.main .chart .site:hover, .main .chart .site.active {
+  fill: #ffd000;
+}
+
+/* Site shown on map */
+.site-info {
+  margin: 30px;
+  padding: 30px;
+  background-color: #bbd9f7;
+  flex: 1 1 1;
+}
+.site-title {
+  font-family: "PT Serif", serif;
+}
+.site-address {
+  font-family: "PT Serif", serif;
+}
+/* Util Classes */
+.hidden {
+  display: none;
+}
+
+/*# sourceMappingURL=output.css.map */

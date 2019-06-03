@@ -1,0 +1,92 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-flow: column;
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+}
+
+h4 {
+}
+
+.headings {
+  flex: 2 1 2;
+}
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+
+  #list_of_sites li {
+    cursor: pointer;
+    list-style-type: none;
+    background-color: #bbd9f7;
+    border-bottom: solid 2px #eee;
+    margin: 5px;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+    }
+  }
+
+  /* Map of Chicago */
+  .chart {
+    cursor: default;
+
+    /* Polygons drawn to depict zipcodes in Chicago */
+    .zipcode {
+      stroke: #fff;
+      fill: #4286f4;
+      stroke-width: 1px;
+
+      &:hover {
+        fill: #ffd000;
+        stroke: #00ddff;
+        stroke-width: 3px;
+      }
+    }
+
+    /* circles depict sites */
+    .site {
+      cursor: default;
+
+      &:hover, &.active {
+        fill: #ffd000;
+      }
+    }
+  }
+}
+
+
+/* Site shown on map */
+.site{
+  &-info {
+    margin: 30px;
+    padding: 30px;
+    background-color: #bbd9f7;
+    flex: 1 1 1;
+  }
+
+  &-title {
+    font-family: 'PT Serif', serif;
+  }
+
+  &-investigator {}
+
+  &-img {}
+
+  &-address {
+    font-family: 'PT Serif', serif;
+  }
+
+  &-description {}
+
+}
+/* Util Classes */
+
+.hidden {
+  display: none;
+}

@@ -52,20 +52,75 @@ $( document ).ready(function() {
       .data(sites_json.features)
       .enter()
       .append('path')
-      .attr('d', geoPath.pointRadius(10))
+      .attr('d', geoPath.pointRadius(5))
       .attr('fill', 'red')
       .attr('stroke', '2')
       .attr("class", "site")
-      .on("click", function(d){
-      	d3.select(".site-title").text(d.properties.name);
-        d3.select(".site-address").text(d.properties.address);
-        d3.select(".site-description").text(d.properties.description);
-        d3.select(".site-investigator").text("Investigator: " + d.properties.investigator);
-        d3.select(".site-image")
-          .attr("src", d.properties.img)
-          .attr('alt', d.properties.img.split(',')[0]);
-        d3.select(".site-info").classed("hidden", false);
+      .attr("id", function(d){
+        return d.properties.name;
       })
+      .on("click", function(d){
+        var site_name = d.properties.name;
+        show_site(site_name);
+        set_active(site_name);
+      })
+
+
+    var list_of_sites = document.getElementById('list_of_sites');
+
+    for (feature of sites_json.features) {
+      var site_name = feature.properties.name;
+      // console.log(site_name);
+      // console.log(feature.properties);
+
+      // create <li> element with site name
+      var node = document.createElement("LI");
+      var textnode = document.createTextNode(site_name);
+      node.appendChild(textnode);
+
+      // when clicked, show site description
+      node.onclick=function(){
+        var this_site_name = this.childNodes[0].nodeValue;
+        show_site(this_site_name);
+        set_active(this_site_name);
+      };
+
+      list_of_sites.appendChild(node);
+
+    }
+
+    var current_active = null;
+
+    function set_active(site_id) {
+
+      if (current_active) {
+        document.getElementById(current_active).classList.remove("active");
+      }
+      current_active = site_id;
+
+      var element = document.getElementById(current_active);
+      element.classList.add("active");
+    };
+
+    function show_site(name) {
+      for (feature of sites_json.features) {
+        var site_name = feature.properties.name;
+
+        if (name === site_name) {
+          console.log("HELLO")
+          d3.select(".site-title").text(feature.properties.name);
+          d3.select(".site-address").text(feature.properties.address);
+          d3.select(".site-description").text(feature.properties.description);
+          d3.select(".site-investigator").text("Investigator: " + feature.properties.investigator);
+          d3.select(".site-image")
+            .attr("src", feature.properties.img)
+            .attr('alt', feature.properties.img.split(',')[0]);
+          d3.select(".site-info").classed("hidden", false);
+        }
+      }
+    }
+
+
 
   })
 
