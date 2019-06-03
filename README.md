@@ -9,8 +9,10 @@ Compile CSS: `sass --watch style.scss output.css`
 
 
 # TODO
-- Email class and ensure everyone has submitted and approves of their site display
+- Why don't some dots show? (Check addresses and maybe need to add 'chicago, Il' to the missing ones)
 - Remove Duplicate Entries (keep latest entry)
+- Make map bigger, make dots bigger
+- Email class and ensure everyone has submitted and approves of their site display
 - Add Images from Google Drive
 - Fix Lat/Long Mixup and then recalculate projection
 

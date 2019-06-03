@@ -11,15 +11,24 @@ h1 {
 h4 {
 }
 
-.headings {
+.column {
+  display: flex;
+  flex-flow: column;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.header {
   flex: 2 1 2;
 }
 
-.main {
-  display: flex;
-  flex-flow: row nowrap;
+#list_of_sites {
+  padding: 0;
 
-  #list_of_sites li {
+  li {
     cursor: pointer;
     list-style-type: none;
     background-color: #bbd9f7;
@@ -31,6 +40,13 @@ h4 {
       transition: 0.5s;
     }
   }
+}
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+
+  // flex: 2 1 auto;
 
   /* Map of Chicago */
   .chart {
@@ -64,10 +80,10 @@ h4 {
 /* Site shown on map */
 .site{
   &-info {
-    margin: 30px;
+    // margin: 30px;
     padding: 30px;
     background-color: #bbd9f7;
-    flex: 1 1 1;
+    // flex: 1 1 1;
   }
 
   &-title {

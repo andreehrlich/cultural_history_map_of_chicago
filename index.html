@@ -22,27 +22,35 @@
 
 <body>
 
-  <div class="headings">
-    <!-- Title -->
-    <h1>Colonial Residue in Chicago, IL</h1>
-    <!-- Description -->
-    <h4>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</h4>
-    <p>Hover over a site to learn about its colonial residue.</p>
-  </div>
+	<div class="row">
+		<div class="column">
+			<div class="header">
+				<!-- Title -->
+		    <h1>Colonial Residue in Chicago, IL</h1>
+		    <!-- Description -->
+		    <h4>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</h4>
+		    <p>Hover over a site to learn about its colonial residue.</p>
 
-	<!-- Map of Chicago -->
-	<div class="main">
-		<div class="map">
-			<svg class="chart"></svg>
-			<!-- Charting zipcodes -->
-			<script src="./mapping.js"></script>
+			</div>
+
+			<div class="list_sites">
+				<ul id="list_of_sites"></ul>
+			</div>
+
+		</div>
+
+		<!-- Map of Chicago -->
+		<div class="main">
+
+			<div class="map">
+				<svg class="chart"></svg>
+				<!-- load script after chart is in document -->
+				<script src="./mapping.js"></script>
+		 </div>
+
 	 </div>
 
-	 <div class="list_sites">
-		 <ul id="list_of_sites">
-		 </ul>
-	 </div>
- </div>
+	</div>
 
   <!-- Selected Site Information -->
   <div class="site-info hidden">

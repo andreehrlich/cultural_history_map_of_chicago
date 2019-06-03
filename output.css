@@ -8,25 +8,39 @@ h1 {
   font-family: "PT Serif", serif;
 }
 
-.headings {
+.column {
+  display: flex;
+  flex-flow: column;
+}
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.header {
   flex: 2 1 2;
 }
 
-.main {
-  display: flex;
-  flex-flow: row nowrap;
-  /* Map of Chicago */
+#list_of_sites {
+  padding: 0;
 }
-.main #list_of_sites li {
+#list_of_sites li {
   cursor: pointer;
   list-style-type: none;
   background-color: #bbd9f7;
   border-bottom: solid 2px #eee;
   margin: 5px;
 }
-.main #list_of_sites li:hover {
+#list_of_sites li:hover {
   transform: scale(1.05);
   transition: 0.5s;
+}
+
+.main {
+  display: flex;
+  flex-flow: row nowrap;
+  /* Map of Chicago */
 }
 .main .chart {
   cursor: default;
@@ -52,10 +66,8 @@ h1 {
 
 /* Site shown on map */
 .site-info {
-  margin: 30px;
   padding: 30px;
   background-color: #bbd9f7;
-  flex: 1 1 1;
 }
 .site-title {
   font-family: "PT Serif", serif;
