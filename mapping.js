@@ -7,10 +7,12 @@ $( document ).ready(function() {
 
 
 
-  Promise.all([d3.json("sites.json"), d3.json("zipcodes.json")]).then(function(data) {
+  Promise.all([d3.json("sites.json"), d3.json("zipcodes.json"), d3.json("evanston.json")]).then(function(data) {
       //console.log(data);
     var zipcodes_json = data[1];
     var sites_json = data[0];
+    var evanston_json = data[2];
+
     console.log("sites: ", sites_json);
 
 
@@ -31,7 +33,7 @@ $( document ).ready(function() {
     projection = d3.geoMercator()
       .center(center)
       .scale(40000)
-      .translate([240, 200]);
+      .translate([200, 250]);
 
     geoPath = d3.geoPath().projection(projection);
 
@@ -44,6 +46,15 @@ $( document ).ready(function() {
       .append('path')
       .attr('d', geoPath)
       .attr('class', 'zipcode')
+
+    // var evanston = svg.append('g');
+    //
+    // evanston.selectAll('path')
+    //   .data(evanston_json.features)
+    //   .enter()
+    //   .append('path')
+    //   .attr('d', geoPath)
+    //   .attr('class', 'zipcode')
 
     var sites = svg.append('g');
 
