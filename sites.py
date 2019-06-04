@@ -38,18 +38,23 @@ geolocator = Nominatim(user_agent="colonial_residue_map")
 
 def address_to_coord(addr):
 
+    print addr
+
+    # if '333 n michigan' in addr:
+        # addr += "chicago, IL"
+
     try:
         location = geolocator.geocode(addr)
         # print((location.latitude, location.longitude))
-        # print location.raw
+        print location.address
         return [ location.longitude, location.latitude ]
 
     except:
-        print "Geolocateor failed for {}".format(address)
-
         if "1130 Midway" in addr:
+            print addr
             return [ -87.598260, 41.787250 ]
         else:
+            print "Geolocateor failed for {}".format(address)
             return [0, 0]
 
 
@@ -90,6 +95,11 @@ for i, line in enumerate(submissions):
     coord = address_to_coord(address)
     image = line[5]
     description = line[6]
+
+    note = "(Image does not have to be included. I just had to submit this form with an image)"
+
+    if note in description:
+        description = description.split(note)[1]
 
 
     # print "date: ", date
@@ -132,7 +142,7 @@ for site in list_of_sites:
     sites_json['features'].append(site[-1])
 
 
-pprint(sites_json)
+# pprint(sites_json)
 
 
 json_dump(sites_json, 'sites.json')

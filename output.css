@@ -57,10 +57,11 @@ h1 {
   stroke: #fff;
   fill: #4286f4;
   stroke-width: 1px;
+  transition: 1s;
 }
 .main .map .chart .zipcode.cover {
   fill: #ffd000;
-  transition: 2s;
+  transition: 3s;
 }
 .main .map .chart .zipcode:hover {
   fill: #ffd000;
@@ -78,7 +79,7 @@ h1 {
 /* Site shown on map */
 .site-info {
   padding: 30px;
-  background-color: #bbd9f7;
+  background-color: #DDECFB;
 }
 .site-title {
   font-family: "PT Serif", serif;

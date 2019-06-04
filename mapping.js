@@ -55,7 +55,7 @@ $( document ).ready(function() {
       .attr('d', geoPath.pointRadius(10))
       .attr('fill', 'red')
       .attr('stroke', '2')
-      .attr('opacity', '0.9')
+      .attr('opacity', '.95')
       .attr("class", "site")
       .attr("id", function(d){
         return d.properties.name;
@@ -124,9 +124,9 @@ $( document ).ready(function() {
           d3.select(".site-address").text(feature.properties.address);
           d3.select(".site-description").text(feature.properties.description);
           d3.select(".site-investigator").text("Investigator: " + feature.properties.investigator);
-          d3.select(".site-image")
-            .attr("src", feature.properties.img)
-            .attr('alt', feature.properties.img.split(',')[0]);
+          // d3.select(".site-image")
+          //   .attr("src", feature.properties.img)
+          //   .attr('alt', feature.properties.img.split(',')[0]);
           d3.select(".site-info").classed("hidden", false);
         }
       }
