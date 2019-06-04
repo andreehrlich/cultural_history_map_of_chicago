@@ -23,61 +23,71 @@
 <body>
 
 	<div class="row">
-		<div class="column">
-			<div class="header">
-				<!-- Title -->
-		    <h1>Colonial Residue in Chicago, IL</h1>
-		    <!-- Description -->
-		    <h4>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</h4>
-		    <p>Hover over a site to learn about its colonial residue.</p>
 
-			</div>
-
-			<div class="list_sites">
-				<ul id="list_of_sites"></ul>
-			</div>
+		<div class="header">
+			<!-- Title -->
+			<h1>Colonial Residue in Chicago, IL</h1>
+			<!-- Description -->
+			<h4>ART-372 Decolonization with Brendan Fernandes. Spring 2019.</h4>
+			<p>Hover over a site to learn about its colonial residue.</p>
 
 		</div>
 
-		<!-- Map of Chicago -->
-		<div class="main">
+	</div>
 
-			<div class="map">
-				<svg class="chart"></svg>
-				<!-- load script after chart is in document -->
-				<script src="./mapping.js"></script>
+	<div class="row">
+		<div class="column ">
+
+			<!-- Map of Chicago -->
+			<div class="main">
+
+				<div class="list_sites">
+					<ul id="list_of_sites"></ul>
+				</div>
+
+				<div class="map">
+					<svg class="chart"></svg>
+			 </div>
+
 		 </div>
 
-	 </div>
+		</div>
+
+		<div class="column column--wide">
+			<!-- Selected Site Information -->
+		  <div class="site-info hidden">
+		    <h2 class="site-title"></h2>
+		    <h3 class="site-address"></h3>
+		    <p class="site-investigator"></p>
+		    <img class="site-image" src="" alt="site-image" height="100" width="100">
+
+		    <!--
+		    <a-scene>
+		      <a-assets>
+		        <img src="" id="photo1">
+		      </a-assets>
+		      <a-entity geometry="primitive: sphere" material="src:#photo1; side:back" radius="20"></a-entity>
+		      <a-entity id="rig" movement-controls position="0 0 0">
+		        <a-entity camera position="0 0 0" look-controls="pointerLockEnabled:
+		          true">
+		          <a-entity cursor raycaster="far: .5" position="0 0 -0.3"
+		            geometry="primitive: ring; radiusInner: 0.003; radiusOuter: 0.005"
+		            material="color: #EE6C15">
+		          </a-entity>
+		        </a-entity>
+		      </a-entity>
+		    </a-scene>
+		    -->
+		    <p class="site-description"></p>
+		  </div>
+		</div>
 
 	</div>
 
-  <!-- Selected Site Information -->
-  <div class="site-info hidden">
-    <h2 class="site-title"></h2>
-    <h3 class="site-address"></h3>
-    <p class="site-investigator"></p>
-    <img class="site-image" src="" alt="site-image" height="100" width="100">
-
-    <!--
-    <a-scene>
-      <a-assets>
-        <img src="" id="photo1">
-      </a-assets>
-      <a-entity geometry="primitive: sphere" material="src:#photo1; side:back" radius="20"></a-entity>
-      <a-entity id="rig" movement-controls position="0 0 0">
-        <a-entity camera position="0 0 0" look-controls="pointerLockEnabled:
-          true">
-          <a-entity cursor raycaster="far: .5" position="0 0 -0.3"
-            geometry="primitive: ring; radiusInner: 0.003; radiusOuter: 0.005"
-            material="color: #EE6C15">
-          </a-entity>
-        </a-entity>
-      </a-entity>
-    </a-scene>
-    -->
-    <p class="site-description"></p>
-  </div>
 </body>
+
+<!-- load script after chart is in document -->
+<script src="./mapping.js"></script>
+
 
 </html>

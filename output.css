@@ -11,19 +11,20 @@ h1 {
 .column {
   display: flex;
   flex-flow: column;
+  flex: 1 1 45%;
+}
+.column--wide {
+  flex: 1 1 65%;
 }
 
 .row {
   display: flex;
-  flex-flow: row wrap;
-}
-
-.header {
-  flex: 2 1 2;
+  flex-flow: row nowrap;
 }
 
 #list_of_sites {
   padding: 0;
+  margin: 0;
 }
 #list_of_sites li {
   cursor: pointer;
@@ -32,36 +33,46 @@ h1 {
   border-bottom: solid 2px #eee;
   margin: 5px;
 }
+#list_of_sites li:first-of-type {
+  margin-top: 0;
+}
 #list_of_sites li:hover {
   transform: scale(1.05);
   transition: 0.5s;
 }
 
 .main {
-  display: flex;
-  flex-flow: row nowrap;
   /* Map of Chicago */
 }
-.main .chart {
+.main .map {
+  position: sticky;
+  right: 50px;
+}
+.main .map .chart {
   cursor: default;
   /* Polygons drawn to depict zipcodes in Chicago */
   /* circles depict sites */
 }
-.main .chart .zipcode {
+.main .map .chart .zipcode {
   stroke: #fff;
   fill: #4286f4;
   stroke-width: 1px;
 }
-.main .chart .zipcode:hover {
+.main .map .chart .zipcode.cover {
+  fill: #ffd000;
+  transition: 2s;
+}
+.main .map .chart .zipcode:hover {
   fill: #ffd000;
   stroke: #00ddff;
   stroke-width: 3px;
 }
-.main .chart .site {
+.main .map .chart .site {
   cursor: default;
 }
-.main .chart .site:hover, .main .chart .site.active {
+.main .map .chart .site:hover, .main .map .chart .site.active {
   fill: #ffd000;
+  transition: 1s;
 }
 
 /* Site shown on map */

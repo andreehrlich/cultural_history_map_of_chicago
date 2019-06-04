@@ -67,6 +67,11 @@ with open('submissions.csv', 'rb') as f:
 
 print "HELLO", sites_json['features']
 
+
+emails = []
+
+list_of_sites = []
+
 for i, line in enumerate(submissions):
     # print line
     print "\n", i
@@ -78,6 +83,7 @@ for i, line in enumerate(submissions):
 
     date = line[0]
     email = line[1]
+    emails.append(email)
     author = line[2]
     place = line[3]
     address = line[4]
@@ -112,7 +118,18 @@ for i, line in enumerate(submissions):
             "longitude": coord[1]
         }
     }
-    sites_json['features'].append(feature_json)
+
+    # remove old submissions (listed in chronological order, duplicate means old one is bad)
+    for site in list_of_sites:
+        if site[1] == email:
+            list_of_sites.remove(site)
+
+    list_of_sites.append([date, email, author, place, address, coord, image, description,  feature_json])
+
+
+
+for site in list_of_sites:
+    sites_json['features'].append(site[-1])
 
 
 pprint(sites_json)

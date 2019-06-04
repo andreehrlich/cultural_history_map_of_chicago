@@ -17,7 +17,7 @@ $( document ).ready(function() {
 
     //Width and height
     var width = 400;
-    var height = 450;
+    var height = 600;
 
     //Create SVG element
     var svg = d3.select(".chart")
@@ -31,8 +31,8 @@ $( document ).ready(function() {
 
     projection = d3.geoMercator()
       .center(center)
-      .scale(40000)
-      .translate([200, 250]);
+      .scale(50000)
+      .translate([width/2 + 50, height/2]);
 
     geoPath = d3.geoPath().projection(projection);
 
@@ -48,13 +48,14 @@ $( document ).ready(function() {
 
     var sites = svg.append('g');
 
-    sites.selectAll('path')
+    sites.selectAll('circle')
       .data(sites_json.features)
       .enter()
       .append('path')
-      .attr('d', geoPath.pointRadius(5))
+      .attr('d', geoPath.pointRadius(10))
       .attr('fill', 'red')
       .attr('stroke', '2')
+      .attr('opacity', '0.9')
       .attr("class", "site")
       .attr("id", function(d){
         return d.properties.name;
@@ -83,6 +84,18 @@ $( document ).ready(function() {
         var this_site_name = this.childNodes[0].nodeValue;
         show_site(this_site_name);
         set_active(this_site_name);
+
+        // color the whole map for 'Digital Colonialism'
+        var zipcode_els = document.getElementsByClassName('zipcode');
+        for (zipcode of zipcode_els) {
+          console.log("zipcode: ", zipcode);
+          if (this_site_name === "Digital Colonialism") {
+            zipcode.classList.add('cover');
+          } else {
+            zipcode.classList.remove('cover');
+          }
+        }
+
       };
 
       list_of_sites.appendChild(node);
@@ -107,7 +120,6 @@ $( document ).ready(function() {
         var site_name = feature.properties.name;
 
         if (name === site_name) {
-          console.log("HELLO")
           d3.select(".site-title").text(feature.properties.name);
           d3.select(".site-address").text(feature.properties.address);
           d3.select(".site-description").text(feature.properties.description);
