@@ -2,6 +2,9 @@ Map of Colonial Residue
 Decolonization Art Seminar, ART-372, Spring 2019.
 
 
+# Interactive Map of Chicago with Students' writings
+https://andreehrlich.github.io/colonial_residue_chicago/ 
+
 # How to run locally
 
 Serve locally: `python3 -m http.server`
