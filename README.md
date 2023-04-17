@@ -21,3 +21,7 @@ https://www.northwestern.edu/class-descriptions/4740/WCAS/ART/372-0/33350.html
 "The history of colonial rule continues to affect and shape the ways we live today. As such, how we define and navigate processes of post-colonialism/decolonization is critical to issues as wide ranging as international cooperation; contemporary art practice; and any engagement we may have with cultural, historic or political institutions."
 
 "Through substantive analysis of course readings; creative workshops; presentations; guest lecturers; and viewings of art and film, students will develop the skills to make theoretical arguments and consider ways to define these complex terms. Students will begin to develop the skills to examine how these terms relate to their own lives and creative practices."  
+
+
+
+![image](https://user-images.githubusercontent.com/13043467/232454841-1ef68794-7dcf-4c60-b089-ebc40462e25a.png)
