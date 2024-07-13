@@ -1,7 +1,8 @@
 Art Seminar
 
 # Interactive Map of Chicago with Students' writings
-https://andreehrlich.github.io/colonial_residue_chicago/ 
+Try the digital historical map here: [https://andreehrlich.github.io/colonial_residue_chicago/ 
+](https://andreehrlich.github.io/cultural_history_map_of_chicago/)
 
 # Run locally
 Serve locally: `python3 -m http.server`
